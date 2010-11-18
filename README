@@ -1,0 +1,24 @@
+This project is an EPUB reader based on MarkLogic Server V4.2. You can
+try it out with the free, Community Edition of MarkLogic Server if you
+don't already have the server running.
+
+It supports (and only supports) EPUB V2 books that are not burdened
+with Digital Rights Management encryption. I plan to upgrade it to
+support EPUB V3 as the spec matures and time allows. I have no
+interest in supporting DRM-encrusted content.
+
+Because this implementation simply uses the web browser to display
+EPUB content, it does not attempt to enforce the markup restrictions
+of EPUB. You can, for example, use video or scripting.
+
+The INSTALL file outlines how to setup and install the code.
+
+The library page supports either list or bookshelf view. You can
+filter the library by publisher, author, tag, or star rating. You can
+specify your own tags and star ratings on the main page for each book.
+There are several sorting options, and of course you can use full text
+search.
+
+If you have any questions or comments, please let me know.
+
+Share and enjoy!
