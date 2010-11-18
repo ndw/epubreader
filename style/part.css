@@ -1,0 +1,35 @@
+/* part.css */
+
+a,
+a:visited,
+a:link {
+  color: black;
+}
+
+span.dot a { text-decoration: none;
+           }
+
+span.off a,
+span.off a:link
+span.off a:visited
+           { color: #aaaaaa;
+           }
+
+span.on a,
+span.on a:link
+span.on a:visited
+           { color: black;
+           }
+
+#epub-header { margin-bottom: 4px;
+               border-bottom: solid 3px #aaaaaa;
+               padding-right: 20px;
+             }
+
+.barwrapper  { margin-top: 4px;
+               padding-top: 4px;
+               border-top: solid 3px #aaaaaa;
+             }
+
+#progressbar { height: 10px;
+             }

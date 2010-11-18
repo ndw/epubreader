@@ -1,0 +1,33 @@
+a,
+a:visited,
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+span.title { font-style: italic;
+             font-weight: bold;
+             font-size: 14pt;
+           }
+
+span.star  {
+             cursor: pointer;
+           }
+
+span.off   { color: #aaaaaa;
+           }
+
+span.on    { color: black;
+           }
+
+
+.cover .title {
+  -webkit-transform: rotate(-53deg);
+  -moz-transform: rotate(-53deg);
+  background-color: red;
+  position: relative;
+  top: 170px;
+  font-size: 30pt;
+  left: 0px;
+  height: 0px;
+}

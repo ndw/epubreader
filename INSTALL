@@ -1,0 +1,38 @@
+1. Install MarkLogic Server V4.2 (or later). This project requires
+   XSLT support so will not run on earlier versions of the server. If
+   you really want it on an earlier version of the server, you should
+   be able to implement the two XSLT transformations in XQuery. But I
+   haven't tried.
+
+2. Grab a copy of this repository and put it somewhere that the
+   MarkLogic server can see it. For the purposes of this document,
+   I'll assume you put it in /projects/epubreader.
+
+3. Create an EPUB database with appropriate forests.
+
+4. Enable collection lexicons in the EPUB database.
+
+5. Create two element range indexes, both of type string:
+
+   Namespace  : http://purl.org/dc/elements/1.1/
+   Local names: identifier,title,publisher,subject,date,creator
+
+   Namespace  : http://marklogic.com/ns/meta
+   Local names: rating,tag
+
+6. Create an application server for the EPUB database with the
+   following settings:
+
+   root:          /projects/epubreader
+   uri rewriter:  /modules/rewriter.xqy
+
+Now if you point your web browser at the machine and port that you
+specified for the application server, you should see the empty library
+page.
+
+There are two ways to load EPUB files into the system:
+
+1. Navigate to /upload.xqy and complete the the form.
+
+2. Post (as in HTTP POST) the EPUB file to /load.xqy
+

@@ -1,0 +1,37 @@
+/* part.css */
+
+a,
+a:visited,
+a:link {
+  color: black;
+}
+
+.cover .title {
+  -webkit-transform: rotate(-53deg);
+  -moz-transform: rotate(-53deg);
+  position: relative;
+  top: 90px;
+  left: 0px;
+  height: 0px;
+}
+
+.blbook {
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.blbook .title {
+  font-size: 16pt;
+}
+
+.blbook .blcover {
+  padding-left: 0.25em;
+  padding-bottom: 0.25em;
+}
+
+.even {
+  background-color: #EEEEEE;
+}
