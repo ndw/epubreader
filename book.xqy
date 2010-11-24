@@ -27,7 +27,8 @@ let $cover     := epub:coveruri($bookparam)
 let $title     := string($meta/dc:title)
 
 let $abstext := replace($meta/dc:description, "\\n", " ")
-let $abstract := xdmp:unquote(concat('<div>', $abstext, '</div>'))
+let $abstract := try { xdmp:unquote(concat('<div>', $abstext, '</div>')) }
+                 catch ($e) { <div>{ $abstext }</div> }
 
 let $uidid     := string($book/@unique-identifier)
 let $uid       := string($meta/*[@id=$uidid][1])

@@ -120,7 +120,8 @@ declare function f:list($books as element(package:package)*) {
   let $title := string($meta/dc:title)
 
   let $abstext := replace($meta/dc:description, "\\n", " ")
-  let $abstract := xdmp:unquote(concat('<div>', $abstext, '</div>'))
+  let $abstract := try { xdmp:unquote(concat('<div>', $abstext, '</div>')) }
+                   catch ($e) { <div>{ $abstext }</div> }
 
   let $cover := epub:coveruri(base-uri($book))
   let $root := epub:rootpath(base-uri($book))
