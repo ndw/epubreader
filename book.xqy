@@ -54,6 +54,7 @@ return
       <script type="text/javascript" src="/script/epub.js">
       </script>
       <link rel="stylesheet" type="text/css" href="/style/book.css" />
+      <link rel="icon" href="/graphics/epubicon.png" type="image/png" />
     </head>
     <body>
       <form id="subset" action="{$bookparam}" method="get">

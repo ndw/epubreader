@@ -1,45 +1,47 @@
 xquery version "1.0-ml";
 
 declare variable $url as xs:string := xdmp:get-request-url();
+
 declare variable $baseurl as xs:string
   := if (contains($url,"?")) then substring-before($url, "?") else $url;
+
 declare variable $command as xs:string
   := if (contains($url,"?")) then substring-after($url, "?") else "";
 
-(:
-let $trace := xdmp:log(concat("rewrite $url: ", $url))
-let $trace := xdmp:log(concat("rewrite base: ", $baseurl))
-:)
+declare variable $root as xs:string := xdmp:modules-root();
+
+declare variable $debug as xs:boolean := false();
 
 let $rewrite
   := if ($baseurl = "/")
      then
-       concat("/default.xqy?",$command)
+       concat("/default.xqy",if ($command = "") then "" else concat("?", $command))
      else
-       if (matches($baseurl, "/.*\.xqy$"))
+       if ($baseurl = "/favicon.ico")
        then
-         $url
+         concat("/local.xqy?url=/graphics/epubicon.png")
        else
-         if (doc-available($baseurl))
+         if (matches($baseurl, "/.*\.xqy$"))
          then
-           concat("/part.xqy?url=", $url)
+           $url
          else
-           if (ends-with($url, ",raw"))
+           if (doc-available($baseurl))
            then
-             concat("/raw.xqy?url=", substring-before($url, ",raw"))
+             concat("/part.xqy?url=", $url)
            else
-             try {
-               let $local := concat("/MarkLogic/epub", $url)
-               let $node := xdmp:document-get($local)
-               return
-                 concat("/local.xqy?url=", $local)
-             } catch ($e) {
-               concat("/book.xqy?book=", $baseurl, "&amp;", $command)
-             }
+             if (ends-with($url, ",raw"))
+             then
+               concat("/raw.xqy?url=", substring-before($url, ",raw"))
+             else
+               try {
+                 let $local := concat($root,if (starts-with($url, "/")) then substring($url,1) else $url)
+                 let $node := xdmp:document-get($local)
+                 return
+                   concat("/local.xqy?url=", $url)
+               } catch ($e) {
+                 concat("/book.xqy?book=", $baseurl,
+                        if ($command = "") then "" else concat("&amp;", $command))
+               }
 return
-(:
-  (xdmp:log(concat("epub rewrite ", $url, " to ", $rewrite)),
-  $rewrite)
-:)
-  $rewrite
-
+  (if ($debug) then xdmp:log(concat("epub rewrite ", $url, " to ", $rewrite)) else (),
+   $rewrite)

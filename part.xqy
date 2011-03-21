@@ -62,6 +62,7 @@ return
           <script type="text/javascript" src="/script/part.js">
           </script>
           <link rel="stylesheet" href="/style/part.css"/>
+          <link rel="icon" href="/graphics/epubicon.png" type="image/png" />
         </head>
         <body>
           <div id="epub-header">

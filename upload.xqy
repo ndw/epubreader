@@ -11,6 +11,7 @@ then
   <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <title>Upload your EPUB file</title>
+      <link rel="icon" href="/graphics/epubicon.png" type="image/png" />
     </head>
     <body>
       <p>Use this form to upload EPUB files.</p>

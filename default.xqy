@@ -316,6 +316,7 @@ return
         </script>
         <script type="text/javascript" src="script/library.js">
         </script>
+        <link rel="icon" href="/graphics/epubicon.png" type="image/png" />
       </head>
       <body>
         { f:form($display, $publisher, $author, $tag, $rating) }
