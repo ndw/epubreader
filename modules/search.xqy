@@ -17,7 +17,7 @@ declare namespace ml="http://marklogic.com/ns/meta";
 declare variable $OPTIONS :=
   <options xmlns="http://marklogic.com/appservices/search">
     <constraint name="creator">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -25,7 +25,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="date">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -33,7 +33,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="identifier">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -41,7 +41,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="publisher">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -49,7 +49,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="rating">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -57,7 +57,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="subject">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -65,7 +65,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="tag">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
@@ -73,7 +73,7 @@ declare variable $OPTIONS :=
       </range>
     </constraint>
     <constraint name="title">
-      <range collation="http://marklogic.com/collation/" type="xs:string">
+      <range collation="http://marklogic.com/collation/codepoint" type="xs:string">
         <facet-option>frequency-order</facet-option>
         <facet-option>descending</facet-option>
         <facet-option>limit=10</facet-option>
