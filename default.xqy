@@ -72,7 +72,10 @@ declare function f:shelf($books as element(package:package)*) {
             let $title := string($meta/dc:title)
 
             let $abstext := replace($meta/dc:description, "\\n", " ")
-            let $abstract := xdmp:unquote(concat('<div>', $abstext, '</div>'))
+            let $abstract
+              := if (contains($abstext, "<"))
+                 then xdmp:unquote(concat('<div>', $abstext, '</div>'))
+                 else <div>{$abstext}</div>
 
             let $cover := epub:coveruri(base-uri($book))
             let $root := epub:rootpath(base-uri($book))
