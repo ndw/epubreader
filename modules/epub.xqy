@@ -195,6 +195,7 @@ declare function epub:load($epub as node()) as xs:string* {
                    </package:package>
   let $uniq-id  := string($package/@unique-identifier)
   let $uid      := string(($package//*[@id = $uniq-id])[1])
+  let $trace    := xdmp:log(("Loading EPUB with $uid: ", $uid))
   let $dir      := if (starts-with($uid,'urn:isbn:'))
                    then substring-after($uid,'urn:isbn:')
                    else
