@@ -28,7 +28,10 @@
   <dt>
     <xsl:choose>
       <xsl:when test="ncx:content">
-        <a href="{resolve-uri(ncx:content[1]/@src, base-uri(.))}">
+        <!-- hack to work around uber-strictness of MLS -->
+        <xsl:variable name="base" select="concat('http://localhost', base-uri(.))"/>
+        <xsl:variable name="res" select="resolve-uri(ncx:content[1]/@src, $base)"/>
+        <a href="{substring-after($res, 'localhost')}">
           <xsl:value-of select="ncx:navLabel[1]/ncx:text"/>
         </a>
       </xsl:when>
